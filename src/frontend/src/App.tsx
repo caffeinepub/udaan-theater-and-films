@@ -75,6 +75,7 @@ function Navbar() {
     { label: "Transformation", id: "transformation" },
     { label: "Why Us", id: "why" },
     { label: "Awards", id: "awards" },
+    { label: "Founder", id: "founder" },
     { label: "Gallery", id: "gallery" },
     { label: "Contact", id: "contact" },
   ];
@@ -104,7 +105,7 @@ function Navbar() {
         </button>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8 ml-auto">
+        <nav className="hidden lg:flex items-center gap-3 ml-auto">
           {links.map((l) => (
             <button
               type="button"
@@ -218,7 +219,7 @@ function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-40 pb-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -226,7 +227,7 @@ function Hero() {
           className="max-w-3xl mx-auto text-center"
         >
           <motion.p
-            className="section-label mb-8 flex items-center justify-center gap-4"
+            className="section-label mb-5 flex items-center justify-center gap-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -253,11 +254,11 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.35 }}
           >
-            <span className="gold-shimmer">From Shy Personality</span>
+            <span className="gold-shimmer">Confidence Is Not Born</span>
             <br />
-            <span className="text-[oklch(0.93_0_0)]">to Confident</span>
+            <span className="text-[oklch(0.93_0_0)]">It Is</span>
             <br />
-            <span className="text-gold-gradient">Public Performer</span>
+            <span className="text-gold-gradient">Built On Stage</span>
           </motion.h1>
 
           <motion.p
@@ -272,7 +273,7 @@ function Hero() {
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-5 justify-center"
+            className="flex flex-wrap gap-3 justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -319,17 +320,17 @@ function About() {
     { value: "100%", label: "Practical Training" },
   ];
   return (
-    <section id="about" className="py-36 bg-deep" ref={ref}>
+    <section id="about" className="py-8 bg-deep" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-8"
         >
           <p className="section-label mb-5">Our Story</p>
           <h2
-            className="font-cinzel font-black uppercase mb-6"
+            className="font-cinzel font-black uppercase mb-3"
             style={{
               fontSize: "clamp(2rem, 4.5vw, 4rem)",
               color: "var(--gold)",
@@ -365,14 +366,14 @@ function About() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-4">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-              className="card-gold p-7 text-center rounded-sm"
+              className="card-gold p-5 text-center rounded-sm"
               data-ocid={`about.card.${i + 1}`}
             >
               <div
@@ -480,13 +481,13 @@ const courses = [
 function Courses() {
   const { ref, inView } = useInView();
   return (
-    <section id="courses" className="py-32 bg-surface" ref={ref}>
+    <section id="courses" className="py-8 bg-surface" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-18"
+          className="text-center mb-10"
         >
           <p className="section-label mb-5">Our Programs</p>
           <h2
@@ -500,7 +501,7 @@ function Courses() {
             Choose Your
             <span className="text-[oklch(0.92_0_0)]"> Transformation</span>
           </h2>
-          <div className="section-divider mt-6 mb-14" />
+          <div className="section-divider mt-6 mb-5" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-7">
@@ -517,7 +518,7 @@ function Courses() {
                 {c.icon}
               </div>
               <h3
-                className="font-cinzel font-bold uppercase mb-7 leading-snug"
+                className="font-cinzel font-bold uppercase mb-4 leading-snug"
                 style={{
                   fontSize: "1.15rem",
                   color: "var(--gold-light)",
@@ -526,7 +527,7 @@ function Courses() {
               >
                 {c.title}
               </h3>
-              <div className="grid grid-cols-1 gap-5 text-sm">
+              <div className="grid grid-cols-1 gap-3 text-sm">
                 <div>
                   <p className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-[oklch(0.48_0_0)] mb-2">
                     You'll Learn
@@ -583,7 +584,7 @@ function Courses() {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-16 border border-[var(--gold)] rounded-sm p-8 text-center relative overflow-hidden"
+            className="mt-5 border border-[var(--gold)] rounded-sm p-5 text-center relative overflow-hidden"
             style={{
               background:
                 "linear-gradient(135deg, oklch(0.10 0 0) 0%, oklch(0.14 0.02 60) 100%)",
@@ -611,7 +612,7 @@ function Courses() {
             >
               Annual Day — Beyond the Stage
             </h3>
-            <p className="font-inter text-[oklch(0.60_0_0)] text-sm mb-7 tracking-wide">
+            <p className="font-inter text-[oklch(0.60_0_0)] text-sm mb-4 tracking-wide">
               Our annual day programs are not designed for applause alone. Every
               performance is a journey of transformation — children develop
               personality, speech clarity, self-confidence, fearlessness on
@@ -619,7 +620,7 @@ function Courses() {
               Swtantra Theater — 10 Annual Day Performances delivered across
               leading schools.
             </p>
-            <div className="flex flex-wrap justify-center gap-5">
+            <div className="flex flex-wrap justify-center gap-3">
               {[
                 "VPMS Pune",
                 "HDFC School, Pune",
@@ -660,12 +661,12 @@ function Courses() {
             </div>
 
             {/* Why Annual Day Matters */}
-            <div className="mt-8 pt-8 border-t border-[oklch(0.25_0.04_60)]">
+            <div className="mt-5 pt-8 border-t border-[oklch(0.25_0.04_60)]">
               <p className="font-cinzel text-[10px] tracking-[0.35em] uppercase text-[oklch(0.48_0_0)] mb-3">
                 The Real Impact
               </p>
               <h4
-                className="font-cinzel font-bold uppercase mb-6"
+                className="font-cinzel font-bold uppercase mb-3"
                 style={{
                   fontSize: "clamp(1rem, 2vw, 1.4rem)",
                   color: "var(--gold)",
@@ -674,7 +675,7 @@ function Courses() {
               >
                 Why Annual Day Matters
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-left mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left mb-5">
                 {[
                   {
                     num: "01",
@@ -731,7 +732,7 @@ function Courses() {
             </div>
 
             {/* Indian Literature Promotion */}
-            <div className="mt-8 pt-8 border-t border-[oklch(0.25_0.04_60)]">
+            <div className="mt-5 pt-8 border-t border-[oklch(0.25_0.04_60)]">
               <p className="font-cinzel text-[10px] tracking-[0.35em] uppercase text-[oklch(0.48_0_0)] mb-3">
                 Also In Our School Programs
               </p>
@@ -800,7 +801,7 @@ function Courses() {
                 >
                   Our Signature Story Dramas
                 </h4>
-                <p className="font-inter text-[oklch(0.55_0_0)] text-sm mb-8 tracking-wide max-w-2xl mx-auto">
+                <p className="font-inter text-[oklch(0.55_0_0)] text-sm mb-5 tracking-wide max-w-2xl mx-auto">
                   From ancient dynasties to freedom fighters — we bring India's
                   greatest stories alive on stage for children to experience,
                   embody, and carry forward.
@@ -1061,7 +1062,7 @@ function Courses() {
                     the joy of simple life, and the art of storytelling with a
                     smile.
                   </p>
-                  <div className="flex flex-wrap justify-center gap-3 mb-6">
+                  <div className="flex flex-wrap justify-center gap-3 mb-3">
                     {[
                       "Antoo Barua — The Lovable Misfit",
                       "Batatyachi Chaal — Life in the Chawl",
@@ -1124,7 +1125,7 @@ function Transformation() {
   return (
     <section
       id="transformation"
-      className="py-44 relative overflow-hidden"
+      className="py-8 relative overflow-hidden"
       style={{ background: "oklch(0.06 0 0)" }}
       ref={ref}
     >
@@ -1157,7 +1158,7 @@ function Transformation() {
           transition={{ duration: 0.8 }}
           className="text-center mb-24"
         >
-          <p className="section-label mb-6">The Journey</p>
+          <p className="section-label mb-3">The Journey</p>
           <h2
             className="font-cinzel font-black uppercase mx-auto max-w-4xl"
             style={{
@@ -1173,7 +1174,7 @@ function Transformation() {
               This Is A Personality Transformation Journey.
             </span>
           </h2>
-          <div className="section-divider mt-8" />
+          <div className="section-divider mt-5" />
         </motion.div>
 
         <div className="relative">
@@ -1185,7 +1186,7 @@ function Transformation() {
             }}
           />
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-4">
             {transformSteps.map((step, i) => (
               <motion.div
                 key={step.label}
@@ -1232,7 +1233,7 @@ function Transformation() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.9 }}
-          className="text-center mt-24 max-w-2xl mx-auto"
+          className="text-center mt-12 max-w-2xl mx-auto"
         >
           <p className="font-inter text-[oklch(0.62_0_0)] leading-loose text-lg">
             Every great performer was once terrified. Every confident speaker
@@ -1285,13 +1286,13 @@ const whyPoints = [
 function WhyUs() {
   const { ref, inView } = useInView();
   return (
-    <section id="why" className="py-36 bg-deep" ref={ref}>
+    <section id="why" className="py-8 bg-deep" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-18"
+          className="text-center mb-10"
         >
           <p className="section-label mb-5">Why Udaan</p>
           <h2
@@ -1305,17 +1306,17 @@ function WhyUs() {
             What Makes Us
             <span className="text-[oklch(0.92_0_0)]"> Different</span>
           </h2>
-          <div className="section-divider mt-6 mb-14" />
+          <div className="section-divider mt-6 mb-5" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {whyPoints.map((p, i) => (
             <motion.div
               key={p.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * i }}
-              className="card-gold p-7 rounded-sm"
+              className="card-gold p-5 rounded-sm"
               data-ocid={`why.card.${i + 1}`}
             >
               <div className="text-gold mb-4">{p.icon}</div>
@@ -1373,13 +1374,13 @@ const pillars = [
 function StudentExperience() {
   const { ref, inView } = useInView();
   return (
-    <section className="py-32 bg-surface" ref={ref}>
+    <section className="py-8 bg-surface" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-18"
+          className="text-center mb-10"
         >
           <p className="section-label mb-5">Student Experience</p>
           <h2
@@ -1396,17 +1397,17 @@ function StudentExperience() {
               They Learn Confidence for Life.
             </span>
           </h2>
-          <div className="section-divider mt-6 mb-14" />
+          <div className="section-divider mt-6 mb-5" />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-5">
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-3">
           {pillars.map((p, i) => (
             <motion.div
               key={p.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * i }}
-              className="card-gold p-7 rounded-sm text-center"
+              className="card-gold p-5 rounded-sm text-center"
               data-ocid={`experience.card.${i + 1}`}
             >
               <div className="text-gold mx-auto mb-4">{p.icon}</div>
@@ -1431,6 +1432,131 @@ function StudentExperience() {
 }
 
 /* ─────────────────────────────────────────────
+   FOUNDER & DIRECTOR PROFILE
+───────────────────────────────────────────── */
+function FounderProfile() {
+  const { ref, inView } = useInView(0.08);
+
+  const highlights = [
+    "14+ Years of Experience",
+    "International Award: Best South Asian Actor",
+    "Trained IAS/IPS Officers",
+    "Trained Army & Navy Cadets",
+    "5+ Years with Leading Arts Institutions",
+    "Expert in Acting, Dance & Gymnastics",
+    "Integrated Theatre & Education",
+  ];
+
+  const bio = [
+    "With over 14 years of dedicated practice in theatre, film, and performing arts, Pravesh Sakore has shaped the artistic vision of Udaan Theater and Films. His expertise spans acting, directing, writing, dance, and gymnastics — making him one of the most versatile performing arts educators in the region.",
+    "He has conducted theatre programs for children across institutions including Savitribai Phule Pune University, VPMS School, CME (College of Military Engineering), and Helen O'Grady, Navi Mumbai. His students include working professionals and even IAS/IPS officers of India — trained in the art of presence, voice, and confident expression.",
+    "For over five years, Pravesh has been associated with S2 Dance Academy, Fearless Flyers Gymnastics, and Swatantrata Theatre Organization — empowering children and youth to discover their voice through movement, theatre, and performance.",
+    "He represented India at the International Colombo Theatre Festival (Sri Lanka) and was awarded the title of Best South Asian Actor — a testament to his craft and international recognition.",
+  ];
+
+  return (
+    <section id="founder" className="py-8 bg-surface">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section heading */}
+        <div
+          className={`text-center mb-20 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
+          <p className="text-xs tracking-[0.35em] uppercase text-gold mb-3 font-medium">
+            The Visionary Behind Udaan
+          </p>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+            Founder &amp; Director
+          </h2>
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-px w-16 bg-gold/40" />
+            <div className="w-2 h-2 rounded-full bg-gold" />
+            <div className="h-px w-16 bg-gold/40" />
+          </div>
+        </div>
+
+        {/* Profile card */}
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start transition-all duration-1000 delay-200 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+        >
+          {/* Avatar column */}
+          <div className="flex flex-col items-center lg:items-start gap-4">
+            {/* Circular avatar with gold border */}
+            <div className="relative">
+              <div className="w-52 h-52 rounded-full border-4 border-gold/60 overflow-hidden shadow-[0_0_40px_rgba(180,140,60,0.25)]">
+                <img
+                  src="/assets/uploads/WhatsApp-Image-2026-03-22-at-5.47.40-PM-1-1.jpeg"
+                  alt="Pravesh Sakore"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-gold text-black text-xs font-semibold tracking-widest uppercase px-4 py-1 rounded-full whitespace-nowrap">
+                Founder &amp; Director
+              </div>
+            </div>
+
+            {/* Highlights */}
+            <div className="mt-5 w-full">
+              <p className="text-xs tracking-widest uppercase text-gold/70 mb-4 text-center lg:text-left">
+                Key Highlights
+              </p>
+              <ul className="flex flex-col gap-2">
+                {highlights.map((h) => (
+                  <li
+                    key={h}
+                    className="flex items-start gap-2 text-sm text-zinc-300"
+                  >
+                    <span className="text-gold mt-0.5 shrink-0">◆</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Bio column */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
+            <div>
+              <h3 className="text-3xl md:text-4xl font-display font-bold text-white leading-tight">
+                Pravesh Sakore
+              </h3>
+              <p className="text-gold text-sm tracking-widest uppercase mt-1 mb-1">
+                Theatre Practitioner · Director · Writer
+              </p>
+              <p className="text-zinc-500 text-sm tracking-wide">
+                Navi Mumbai &nbsp;|&nbsp; Originally from Pune
+              </p>
+            </div>
+
+            <div className="h-px bg-gold/20 w-24" />
+
+            {bio.map((para) => (
+              <p
+                key={para.slice(0, 30)}
+                className="text-zinc-300 leading-relaxed text-[15px]"
+              >
+                {para}
+              </p>
+            ))}
+
+            {/* Quote block */}
+            <blockquote className="mt-4 border-l-4 border-gold pl-6 py-2 bg-zinc-900/60 rounded-r-xl">
+              <p className="text-zinc-200 italic text-base leading-relaxed mb-3">
+                "I believe art and learning together shape a better human being.
+                Theatre is not just a performance — it is a way of living with
+                confidence, empathy, and joy."
+              </p>
+              <footer className="text-gold text-xs tracking-widest uppercase font-semibold">
+                — Pravesh Sakore
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
    AWARDS & RECOGNITION
 ───────────────────────────────────────────── */
 function AwardsRecognition() {
@@ -1439,7 +1565,7 @@ function AwardsRecognition() {
   return (
     <section
       id="awards"
-      className="py-36 relative overflow-hidden"
+      className="py-8 relative overflow-hidden"
       style={{ background: "oklch(0.06 0 0)" }}
       ref={ref}
     >
@@ -1545,9 +1671,9 @@ function AwardsRecognition() {
             </motion.div>
 
             {/* Content */}
-            <div className="lg:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+            <div className="lg:w-7/12 p-5 md:p-12 flex flex-col justify-center">
               {/* Trophy icon + award title */}
-              <div className="flex items-start gap-4 mb-6">
+              <div className="flex items-start gap-4 mb-3">
                 <div
                   className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-2xl"
                   style={{
@@ -1575,7 +1701,7 @@ function AwardsRecognition() {
 
               {/* Event name */}
               <div
-                className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full w-fit"
+                className="inline-flex items-center gap-3 mb-3 px-4 py-2 rounded-full w-fit"
                 style={{
                   background: "oklch(0.75 0.12 85 / 0.08)",
                   border: "1px solid oklch(0.75 0.12 85 / 0.3)",
@@ -1595,7 +1721,7 @@ function AwardsRecognition() {
 
               {/* Description */}
               <p
-                className="text-base md:text-lg leading-relaxed mb-8"
+                className="text-base md:text-lg leading-relaxed mb-5"
                 style={{ color: "oklch(0.72 0 0)" }}
               >
                 Udaan Theater and Films proudly celebrates this distinguished
@@ -1692,7 +1818,7 @@ function PerformanceGallery() {
   return (
     <section
       id="gallery"
-      className="py-36 relative overflow-hidden"
+      className="py-8 relative overflow-hidden"
       style={{ background: "oklch(0.05 0 0)" }}
       ref={ref}
     >
@@ -1725,7 +1851,7 @@ function PerformanceGallery() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-18"
+          className="text-center mb-10"
         >
           <p className="section-label mb-5 flex items-center justify-center gap-3">
             <Camera size={14} className="text-gold" />
@@ -1745,7 +1871,7 @@ function PerformanceGallery() {
               Real Transformation.
             </span>
           </h2>
-          <div className="section-divider mt-6 mb-6" />
+          <div className="section-divider mt-6 mb-3" />
           <p className="font-inter text-[oklch(0.55_0_0)] text-base max-w-xl mx-auto leading-relaxed">
             Every photograph captures a moment when our students stepped beyond
             fear and into their power. This is what transformation looks like.
@@ -1882,9 +2008,9 @@ function PerformanceGallery() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="text-center mt-16"
+          className="text-center mt-5"
         >
-          <p className="font-inter text-[oklch(0.50_0_0)] text-sm mb-6">
+          <p className="font-inter text-[oklch(0.50_0_0)] text-sm mb-3">
             Want to be in the next performance? Your story starts here.
           </p>
           <button
@@ -1976,7 +2102,7 @@ function CTA() {
   const { ref, inView } = useInView();
   return (
     <section
-      className="py-52 relative overflow-hidden"
+      className="py-8 relative overflow-hidden"
       style={{ background: "oklch(0.05 0 0)" }}
       ref={ref}
     >
@@ -2024,7 +2150,7 @@ function CTA() {
               If You Want Excuses, This Is Not.
             </span>
           </h2>
-          <p className="font-inter text-[oklch(0.55_0_0)] text-lg mb-14 max-w-xl mx-auto leading-relaxed">
+          <p className="font-inter text-[oklch(0.55_0_0)] text-lg mb-5 max-w-xl mx-auto leading-relaxed">
             Your transformation starts the moment you decide to step on stage.
           </p>
           <button
@@ -2047,13 +2173,13 @@ function CTA() {
 function Contact() {
   const { ref, inView } = useInView();
   return (
-    <section id="contact" className="py-36 bg-deep" ref={ref}>
+    <section id="contact" className="py-8 bg-deep" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-18"
+          className="text-center mb-10"
         >
           <p className="section-label mb-5">Get In Touch</p>
           <h2
@@ -2067,7 +2193,7 @@ function Contact() {
             Begin Your
             <span className="text-[oklch(0.92_0_0)]"> Journey</span>
           </h2>
-          <div className="section-divider mt-6 mb-14" />
+          <div className="section-divider mt-6 mb-5" />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10">
@@ -2075,22 +2201,22 @@ function Contact() {
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="space-y-6"
+            className="space-y-3"
           >
             <div
-              className="p-8 rounded-sm"
+              className="p-5 rounded-sm"
               style={{
                 background: "var(--surface)",
                 border: "1px solid oklch(0.75 0.12 85 / 0.2)",
               }}
             >
               <h3
-                className="font-cinzel font-bold uppercase text-sm tracking-[0.2em] mb-8"
+                className="font-cinzel font-bold uppercase text-sm tracking-[0.2em] mb-5"
                 style={{ color: "var(--gold)" }}
               >
                 Contact Information
               </h3>
-              <div className="space-y-6">
+              <div className="space-y-3">
                 <a
                   href="tel:+919137911308"
                   className="flex items-start gap-4 group"
@@ -2136,7 +2262,7 @@ function Contact() {
               </div>
 
               <div
-                className="mt-8 pt-8"
+                className="mt-5 pt-8"
                 style={{ borderTop: "1px solid oklch(0.75 0.12 85 / 0.15)" }}
               >
                 <a
@@ -2195,6 +2321,7 @@ function Footer() {
     { label: "Transformation", id: "transformation" },
     { label: "Why Us", id: "why" },
     { label: "Awards", id: "awards" },
+    { label: "Founder", id: "founder" },
     { label: "Gallery", id: "gallery" },
     { label: "Contact", id: "contact" },
   ];
@@ -2225,7 +2352,7 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-gold mb-6">
+            <h4 className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-gold mb-3">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -2245,7 +2372,7 @@ function Footer() {
           </div>
 
           <div>
-            <h4 className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-gold mb-6">
+            <h4 className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-gold mb-3">
               Follow Us
             </h4>
             <div className="flex gap-4">
@@ -2326,9 +2453,10 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <FounderProfile />
         <About />
-        <Courses />
         <Transformation />
+        <Courses />
         <WhyUs />
         <StudentExperience />
         <AwardsRecognition />
