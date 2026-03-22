@@ -3,9 +3,11 @@ import {
   Award,
   BookOpen,
   Briefcase,
+  Camera,
   ChevronDown,
   Facebook,
   Film,
+  GraduationCap,
   Heart,
   Instagram,
   Mail,
@@ -72,6 +74,8 @@ function Navbar() {
     { label: "Courses", id: "courses" },
     { label: "Transformation", id: "transformation" },
     { label: "Why Us", id: "why" },
+    { label: "Awards", id: "awards" },
+    { label: "Gallery", id: "gallery" },
     { label: "Contact", id: "contact" },
   ];
 
@@ -83,15 +87,14 @@ function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-4 relative flex items-center">
         {/* Logo */}
         <button
           type="button"
           onClick={() => scrollTo("hero")}
-          className="flex flex-col leading-none"
+          className="flex flex-col leading-none items-start"
           data-ocid="nav.link"
         >
-          {/* FIX 1: logo cinzel with gradient text treatment */}
           <span className="font-cinzel text-2xl font-black tracking-[0.18em] text-gold-gradient uppercase">
             UDAAN
           </span>
@@ -101,7 +104,7 @@ function Navbar() {
         </button>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-8 ml-auto">
           {links.map((l) => (
             <button
               type="button"
@@ -200,7 +203,6 @@ function Hero() {
             "linear-gradient(105deg, oklch(0.04 0 0 / 0.97) 0%, oklch(0.05 0 0 / 0.82) 50%, oklch(0.05 0 0 / 0.30) 100%)",
         }}
       />
-      {/* Vignette */}
       <div
         className="absolute inset-0"
         style={{
@@ -208,7 +210,6 @@ function Hero() {
             "radial-gradient(ellipse at center, transparent 35%, oklch(0.02 0 0 / 0.75) 100%)",
         }}
       />
-      {/* FIX 3: subtle horizontal gold rule at bottom of hero for drama */}
       <div
         className="absolute bottom-0 left-0 right-0 h-px"
         style={{
@@ -217,17 +218,15 @@ function Hero() {
         }}
       />
 
-      {/* FIX 3: more generous vertical padding for cinematic breathing */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-40 pb-32">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="max-w-3xl"
+          className="max-w-3xl mx-auto text-center"
         >
-          {/* Kicker */}
           <motion.p
-            className="section-label mb-8 flex items-center gap-4"
+            className="section-label mb-8 flex items-center justify-center gap-4"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -243,12 +242,11 @@ function Hero() {
             />
           </motion.p>
 
-          {/* FIX 1: Hero H1 — larger clamp, wider tracking, shimmer on main word */}
           <motion.h1
             className="font-cinzel font-black uppercase leading-[1.06] mb-10"
             style={{
-              fontSize: "clamp(2.6rem, 6.5vw, 6rem)",
-              letterSpacing: "0.06em",
+              fontSize: "clamp(1.1rem, 2.2vw, 1.9rem)",
+              letterSpacing: "0.28em",
               textShadow: "0 4px 60px oklch(0.75 0.12 85 / 0.25)",
             }}
             initial={{ opacity: 0, y: 30 }}
@@ -262,9 +260,8 @@ function Hero() {
             <span className="text-gold-gradient">Public Performer</span>
           </motion.h1>
 
-          {/* Sub */}
           <motion.p
-            className="font-inter text-xl text-[oklch(0.72_0_0)] max-w-xl leading-loose mb-12"
+            className="font-inter text-xl text-[oklch(0.72_0_0)] max-w-xl leading-loose mb-12 mx-auto"
             style={{ letterSpacing: "0.01em" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -274,9 +271,8 @@ function Hero() {
             and personality transformation through theatre.
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
-            className="flex flex-wrap gap-5"
+            className="flex flex-wrap gap-5 justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -301,7 +297,6 @@ function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow">
         <span className="font-inter text-[10px] tracking-[0.35em] uppercase text-[oklch(0.48_0_0)]">
           Scroll
@@ -324,7 +319,6 @@ function About() {
     { value: "100%", label: "Practical Training" },
   ];
   return (
-    /* FIX 3: increased section padding for drama and breathing */
     <section id="about" className="py-36 bg-deep" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
@@ -334,7 +328,6 @@ function About() {
           className="text-center mb-20"
         >
           <p className="section-label mb-5">Our Story</p>
-          {/* FIX 1: increased H2 max size + wider tracking */}
           <h2
             className="font-cinzel font-black uppercase mb-6"
             style={{
@@ -348,7 +341,6 @@ function About() {
             <br />
             <span className="text-[oklch(0.92_0_0)]">We Transform It.</span>
           </h2>
-          {/* FIX 3: gradient divider replaces plain line */}
           <div className="section-divider mb-10" />
           <p className="font-inter text-[oklch(0.75_0_0)] max-w-3xl mx-auto leading-loose text-lg">
             At Udaan Theater and Films, we believe that the stage is the most
@@ -363,10 +355,17 @@ function About() {
             don't lecture confidence into you — we pull it out through theatre.
             This is transformation, not training.
           </p>
+          <p className="font-inter text-[oklch(0.62_0_0)] max-w-3xl mx-auto leading-loose mt-6">
+            Udaan Theater and Films is a vibrant creative hub where aspiring
+            performers and storytellers take flight. At Udaan, students don't
+            just learn to act — they experience the art of performance from the
+            inside out. With expert guidance in camera acting, stage acting, and
+            the timeless principles of Nāṭyaśāstra, Udaan blends contemporary
+            practice with classical foundations.
+          </p>
         </motion.div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 gap-6">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -376,7 +375,6 @@ function About() {
               className="card-gold p-7 text-center rounded-sm"
               data-ocid={`about.card.${i + 1}`}
             >
-              {/* FIX 1: stat numbers use gradient text */}
               <div
                 className="font-cinzel font-black text-4xl mb-2 text-gold-gradient"
                 style={{ letterSpacing: "0.05em" }}
@@ -458,12 +456,30 @@ const courses = [
       "Elevate your professional brand",
     ],
   },
+  {
+    icon: <GraduationCap size={28} />,
+    title: "School Annual Day Drama & Stage Play Design",
+    learn: [
+      "Script selection & adaptation for age groups",
+      "Stage direction, blocking & choreography",
+      "Costume, props & production design",
+      "Voice modulation & dialogue delivery coaching",
+      "Building confidence & overcoming stage fear",
+    ],
+    who: "Schools, educational institutions",
+    benefits: [
+      "Done in association with Swtantra Theater",
+      "10+ successful annual days delivered",
+      "Focus: child development, not just performance",
+      "Builds personality, speech & life skills",
+      "Trusted by VPMS Pune, HDFC School & more",
+    ],
+  },
 ];
 
 function Courses() {
   const { ref, inView } = useInView();
   return (
-    /* FIX 3: slightly reduced from about to create section rhythm alternation */
     <section id="courses" className="py-32 bg-surface" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
@@ -473,7 +489,6 @@ function Courses() {
           className="text-center mb-18"
         >
           <p className="section-label mb-5">Our Programs</p>
-          {/* FIX 1: bigger H2 for hierarchy differentiation */}
           <h2
             className="font-cinzel font-black uppercase mb-4"
             style={{
@@ -501,7 +516,6 @@ function Courses() {
               <div className="text-gold mb-5 group-hover:scale-110 transition-transform duration-300">
                 {c.icon}
               </div>
-              {/* FIX 1: course card titles bigger and wider tracking */}
               <h3
                 className="font-cinzel font-bold uppercase mb-7 leading-snug"
                 style={{
@@ -563,6 +577,527 @@ function Courses() {
               </div>
             </motion.div>
           ))}
+
+          {/* School Partnerships Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-16 border border-[var(--gold)] rounded-sm p-8 text-center relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(135deg, oklch(0.10 0 0) 0%, oklch(0.14 0.02 60) 100%)",
+            }}
+            data-ocid="courses.schools.panel"
+          >
+            <div
+              className="absolute inset-0 opacity-5"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(45deg, var(--gold) 0, var(--gold) 1px, transparent 0, transparent 50%)",
+                backgroundSize: "12px 12px",
+              }}
+            />
+            <p className="font-cinzel text-[10px] tracking-[0.35em] uppercase text-[oklch(0.48_0_0)] mb-4">
+              In Association with Swtantra Theater
+            </p>
+            <h3
+              className="font-cinzel font-black uppercase mb-3"
+              style={{
+                fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)",
+                color: "var(--gold)",
+                letterSpacing: "0.06em",
+              }}
+            >
+              Annual Day — Beyond the Stage
+            </h3>
+            <p className="font-inter text-[oklch(0.60_0_0)] text-sm mb-7 tracking-wide">
+              Our annual day programs are not designed for applause alone. Every
+              performance is a journey of transformation — children develop
+              personality, speech clarity, self-confidence, fearlessness on
+              stage, and essential life skills. Done in proud association with
+              Swtantra Theater — 10 Annual Day Performances delivered across
+              leading schools.
+            </p>
+            <div className="flex flex-wrap justify-center gap-5">
+              {[
+                "VPMS Pune",
+                "HDFC School, Pune",
+                "Chandrakant Darode School, Pune",
+              ].map((school) => (
+                <span
+                  key={school}
+                  className="font-cinzel text-xs uppercase tracking-[0.2em] px-5 py-2.5 border border-[oklch(0.38_0.06_60)] text-[var(--gold-light)] rounded-sm"
+                  style={{ background: "oklch(0.08 0.01 60 / 0.6)" }}
+                >
+                  {school}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-wrap justify-center gap-3 mt-5">
+              {[
+                "Personality Development",
+                "Speech & Voice",
+                "Confidence Building",
+                "Overcoming Stage Fear",
+                "Life Skills",
+                "Teamwork & Discipline",
+                "Emotional Intelligence",
+                "Body Language & Expression",
+                "Creative Thinking",
+                "Leadership on Stage",
+                "Memory & Concentration",
+                "Cultural Awareness",
+              ].map((pillar) => (
+                <span
+                  key={pillar}
+                  className="font-cinzel text-[10px] uppercase tracking-[0.15em] px-3 py-1.5 border border-[var(--gold)] text-[var(--gold)] rounded-full"
+                  style={{ background: "oklch(0.06 0.02 60 / 0.5)" }}
+                >
+                  {pillar}
+                </span>
+              ))}
+            </div>
+
+            {/* Why Annual Day Matters */}
+            <div className="mt-8 pt-8 border-t border-[oklch(0.25_0.04_60)]">
+              <p className="font-cinzel text-[10px] tracking-[0.35em] uppercase text-[oklch(0.48_0_0)] mb-3">
+                The Real Impact
+              </p>
+              <h4
+                className="font-cinzel font-bold uppercase mb-6"
+                style={{
+                  fontSize: "clamp(1rem, 2vw, 1.4rem)",
+                  color: "var(--gold)",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                Why Annual Day Matters
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-left mb-8">
+                {[
+                  {
+                    num: "01",
+                    heading: "It Builds Confidence for Life",
+                    desc: "A child who stands on stage before 500 people never fears a classroom, an interview, or a crowd again.",
+                  },
+                  {
+                    num: "02",
+                    heading: "Speech Becomes a Superpower",
+                    desc: "We train voice, diction, and modulation so every word lands with clarity and power.",
+                  },
+                  {
+                    num: "03",
+                    heading: "Stage Fear is Conquered Forever",
+                    desc: "Our structured rehearsal process turns anxiety into excitement — one step at a time.",
+                  },
+                  {
+                    num: "04",
+                    heading: "Teamwork is Lived, Not Taught",
+                    desc: "Working together toward one performance teaches cooperation better than any textbook.",
+                  },
+                  {
+                    num: "05",
+                    heading: "Indian Culture is Celebrated",
+                    desc: "Children don't just read about India's heritage — they live it, breathe it, and perform it.",
+                  },
+                  {
+                    num: "06",
+                    heading: "Memories That Last a Lifetime",
+                    desc: "For parents, teachers, and children alike, a great annual day becomes the story told for years.",
+                  },
+                ].map((point) => (
+                  <div key={point.num} className="flex gap-4 items-start">
+                    <span
+                      className="font-cinzel font-black text-lg leading-none shrink-0 mt-0.5"
+                      style={{ color: "var(--gold)", opacity: 0.7 }}
+                    >
+                      {point.num}
+                    </span>
+                    <div>
+                      <h6
+                        className="font-cinzel font-bold text-xs uppercase tracking-wider mb-1"
+                        style={{ color: "oklch(0.88 0.06 80)" }}
+                      >
+                        {point.heading}
+                      </h6>
+                      <p className="font-inter text-[oklch(0.58_0_0)] text-xs leading-relaxed">
+                        {point.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Indian Literature Promotion */}
+            <div className="mt-8 pt-8 border-t border-[oklch(0.25_0.04_60)]">
+              <p className="font-cinzel text-[10px] tracking-[0.35em] uppercase text-[oklch(0.48_0_0)] mb-3">
+                Also In Our School Programs
+              </p>
+              <h4
+                className="font-cinzel font-bold uppercase mb-4"
+                style={{
+                  fontSize: "clamp(1rem, 2vw, 1.4rem)",
+                  color: "var(--gold)",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                Celebrating Indian Literature
+              </h4>
+              <p className="font-inter text-[oklch(0.60_0_0)] text-sm mb-5 tracking-wide max-w-2xl mx-auto">
+                We believe the soul of India lives in its stories. Our school
+                programs actively promote Indian literature — bringing the works
+                of legendary poets, playwrights, and storytellers to life on
+                stage. Students experience the power and beauty of India's
+                literary heritage firsthand.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                {[
+                  "Stories from Indian Classics",
+                  "Poems by Kabir, Tukaram & Mirabai",
+                  "Folk Tales & Mythology",
+                  "Regional Language Plays",
+                  "Nāṭyaśāstra-Based Stagecraft",
+                  "Freedom Movement Narratives",
+                  "Sanskrit Shloka Recitation",
+                  "Modern Indian Playwrights",
+                  "Stories of Tenali Rama",
+                  "Exploring Indian Dynasties",
+                  "Freedom Fighter Stories",
+                  "Stories by P.L. Deshpande",
+                  "Epics — Ramayana & Mahabharata",
+                  "Panchatantra Tales",
+                  "Akbar & Birbal Stories",
+                  "Sufi & Bhakti Traditions",
+                  "Rani Lakshmibai — The Warrior Queen",
+                  "Chhatrapati Shivaji — The Great King",
+                  "Lives of Indian Scientists",
+                  "Birsa Munda — Tribal Courage",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="font-cinzel text-[10px] uppercase tracking-[0.12em] px-3 py-1.5 border border-[oklch(0.38_0.06_60)] text-[var(--gold-light)] rounded-full"
+                    style={{ background: "oklch(0.08 0.01 60 / 0.6)" }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              {/* Signature Story Dramas */}
+              <div className="mt-10 pt-8 border-t border-[oklch(0.25_0.04_60)]">
+                <p className="font-cinzel text-[10px] tracking-[0.35em] uppercase text-[oklch(0.48_0_0)] mb-3">
+                  Signature Stage Dramas
+                </p>
+                <h4
+                  className="font-cinzel font-bold uppercase mb-2"
+                  style={{
+                    fontSize: "clamp(1rem, 2vw, 1.4rem)",
+                    color: "var(--gold)",
+                    letterSpacing: "0.06em",
+                  }}
+                >
+                  Our Signature Story Dramas
+                </h4>
+                <p className="font-inter text-[oklch(0.55_0_0)] text-sm mb-8 tracking-wide max-w-2xl mx-auto">
+                  From ancient dynasties to freedom fighters — we bring India's
+                  greatest stories alive on stage for children to experience,
+                  embody, and carry forward.
+                </p>
+
+                {/* Category 1: Tenali Rama */}
+                <div className="mb-10">
+                  <div className="mb-4">
+                    <h5
+                      className="font-cinzel font-bold uppercase"
+                      style={{
+                        color: "var(--gold)",
+                        fontSize: "clamp(0.85rem, 1.6vw, 1.1rem)",
+                        letterSpacing: "0.08em",
+                      }}
+                    >
+                      Tenali Rama & the Great Dynasties
+                    </h5>
+                    <p className="font-inter text-[oklch(0.52_0_0)] text-xs tracking-widest mt-1 uppercase">
+                      Wit, Wisdom & the Kingdoms of Bharat
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      {
+                        dynasty: "Maurya Dynasty",
+                        title: "The Lion's Court",
+                        story:
+                          "Tenali Rama visits the grand court of Emperor Chandragupta Maurya. With his sharp wit he exposes a corrupt minister using a simple riddle, earning the admiration of Chanakya himself.",
+                        themes: ["Justice", "Wisdom", "Statecraft"],
+                      },
+                      {
+                        dynasty: "Gupta Dynasty",
+                        title: "The Golden Age",
+                        story:
+                          "In the court of Chandragupta II, during India's golden age of art and science, Tenali impresses scholars with a poem that answers three questions at once.",
+                        themes: ["Knowledge", "Poetry", "Culture"],
+                      },
+                      {
+                        dynasty: "Chola Dynasty",
+                        title: "The Temple & the Trickster",
+                        story:
+                          "Tenali travels south to the magnificent Chola kingdom. He helps a poor sculptor reclaim his stolen artwork from a greedy landlord — using only his clever tongue.",
+                        themes: ["Art", "Courage", "Justice"],
+                      },
+                      {
+                        dynasty: "Maratha Dynasty",
+                        title: "Chhatrapati's Challenge",
+                        story:
+                          "In Shivaji Maharaj's court, Tenali faces his greatest test. He must solve a riddle that even the bravest warriors could not — and in doing so, teaches that a sharp mind is mightier than a sharp sword.",
+                        themes: [
+                          "Bravery",
+                          "Intelligence",
+                          "Maharashtra Pride",
+                        ],
+                      },
+                    ].map((card) => (
+                      <div
+                        key={card.dynasty}
+                        className="rounded-sm border border-[oklch(0.32_0.06_60)] p-4 text-left"
+                        style={{ background: "oklch(0.08 0.01 60 / 0.6)" }}
+                      >
+                        <p
+                          className="font-cinzel text-[10px] uppercase tracking-[0.2em] mb-1"
+                          style={{ color: "var(--gold)" }}
+                        >
+                          {card.dynasty}
+                        </p>
+                        <h6
+                          className="font-cinzel font-bold text-sm mb-2"
+                          style={{ color: "oklch(0.88 0.06 80)" }}
+                        >
+                          {card.title}
+                        </h6>
+                        <p className="font-inter text-[oklch(0.60_0_0)] text-xs leading-relaxed mb-3">
+                          {card.story}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {card.themes.map((t) => (
+                            <span
+                              key={t}
+                              className="font-cinzel text-[9px] uppercase tracking-[0.1em] px-2 py-0.5 border border-[oklch(0.38_0.06_60)] text-[var(--gold-light)] rounded-full"
+                              style={{
+                                background: "oklch(0.06 0.01 60 / 0.5)",
+                              }}
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Category 2: Freedom Fighters */}
+                <div className="mb-10 pt-8 border-t border-[oklch(0.20_0.03_60)]">
+                  <div className="mb-4">
+                    <h5
+                      className="font-cinzel font-bold uppercase"
+                      style={{
+                        color: "var(--gold)",
+                        fontSize: "clamp(0.85rem, 1.6vw, 1.1rem)",
+                        letterSpacing: "0.08em",
+                      }}
+                    >
+                      Echoes of Courage — Freedom Fighter Stories
+                    </h5>
+                    <p className="font-inter text-[oklch(0.52_0_0)] text-xs tracking-widest mt-1 uppercase">
+                      Bringing India's Heroes to Life on Stage
+                    </p>
+                  </div>
+                  <div
+                    className="rounded-sm border border-[oklch(0.32_0.06_60)] p-5 text-left mb-4"
+                    style={{ background: "oklch(0.08 0.01 60 / 0.6)" }}
+                  >
+                    <p
+                      className="font-cinzel text-[10px] uppercase tracking-[0.2em] mb-1"
+                      style={{ color: "var(--gold)" }}
+                    >
+                      Featured Story
+                    </p>
+                    <h6
+                      className="font-cinzel font-bold text-sm mb-2"
+                      style={{ color: "oklch(0.88 0.06 80)" }}
+                    >
+                      Bhagat Singh — The Fearless Flame
+                    </h6>
+                    <p className="font-inter text-[oklch(0.62_0_0)] text-xs leading-relaxed mb-3">
+                      At just 23, Bhagat Singh walked to the gallows singing.
+                      His story on our stage is not just about sacrifice — it is
+                      about a young man who chose to fight injustice with ideas,
+                      courage, and an unshakeable fire in his heart. Students
+                      who portray him learn what it means to stand for something
+                      greater than themselves.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {[
+                        "Courage",
+                        "Sacrifice",
+                        "Patriotism",
+                        "Youth Power",
+                      ].map((t) => (
+                        <span
+                          key={t}
+                          className="font-cinzel text-[9px] uppercase tracking-[0.1em] px-2 py-0.5 border border-[oklch(0.38_0.06_60)] text-[var(--gold-light)] rounded-full"
+                          style={{ background: "oklch(0.06 0.01 60 / 0.5)" }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                    {[
+                      {
+                        label: "Featured Story",
+                        title: "Rani Lakshmibai — The Warrior Queen",
+                        story:
+                          "The Queen of Jhansi who refused to surrender to the British Empire. Her story teaches children that courage has no gender — that a mother, a ruler, and a warrior can all live in one person. Students who embody her strength carry her fire into every corner of their lives.",
+                        themes: [
+                          "Courage",
+                          "Womanhood",
+                          "Sacrifice",
+                          "Pride of India",
+                        ],
+                      },
+                      {
+                        label: "Featured Story",
+                        title: "Subhas Chandra Bose — The Fearless Commander",
+                        story:
+                          "Netaji gave up luxury, safety, and comfort to build an army of the free. His story on our stage shows children what it means to dream beyond limits — that a free India was not given to us, it was fought for, with every heartbeat and every breath.",
+                        themes: [
+                          "Leadership",
+                          "Patriotism",
+                          "Vision",
+                          "Fearlessness",
+                        ],
+                      },
+                      {
+                        label: "Featured Story",
+                        title: "Savitribai Phule — The First Teacher",
+                        story:
+                          "She walked to school with stones and dung thrown at her — and she kept walking. India's first female teacher, Savitribai Phule's story reminds every child that education is the most powerful act of rebellion. Her life is a lesson that no stone can stop a determined heart.",
+                        themes: [
+                          "Education",
+                          "Women's Rights",
+                          "Perseverance",
+                          "Revolution",
+                        ],
+                      },
+                    ].map((card) => (
+                      <div
+                        key={card.title}
+                        className="rounded-sm border border-[oklch(0.32_0.06_60)] p-4 text-left"
+                        style={{ background: "oklch(0.08 0.01 60 / 0.6)" }}
+                      >
+                        <p
+                          className="font-cinzel text-[10px] uppercase tracking-[0.2em] mb-1"
+                          style={{ color: "var(--gold)" }}
+                        >
+                          {card.label}
+                        </p>
+                        <h6
+                          className="font-cinzel font-bold text-sm mb-2"
+                          style={{ color: "oklch(0.88 0.06 80)" }}
+                        >
+                          {card.title}
+                        </h6>
+                        <p className="font-inter text-[oklch(0.60_0_0)] text-xs leading-relaxed mb-3">
+                          {card.story}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {card.themes.map((t) => (
+                            <span
+                              key={t}
+                              className="font-cinzel text-[9px] uppercase tracking-[0.1em] px-2 py-0.5 border border-[oklch(0.38_0.06_60)] text-[var(--gold-light)] rounded-full"
+                              style={{
+                                background: "oklch(0.06 0.01 60 / 0.5)",
+                              }}
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="font-inter text-[oklch(0.45_0_0)] text-xs italic tracking-wide mt-4">
+                    More freedom fighter stories added each year — growing our
+                    living gallery of India's bravest hearts.
+                  </p>
+                </div>
+
+                {/* Category 3: P.L. Deshpande */}
+                <div className="pt-8 border-t border-[oklch(0.20_0.03_60)]">
+                  <div className="mb-4">
+                    <h5
+                      className="font-cinzel font-bold uppercase"
+                      style={{
+                        color: "var(--gold)",
+                        fontSize: "clamp(0.85rem, 1.6vw, 1.1rem)",
+                        letterSpacing: "0.08em",
+                      }}
+                    >
+                      P.L. Deshpande — Maharashtra's Eternal Storyteller
+                    </h5>
+                    <p className="font-inter text-[oklch(0.52_0_0)] text-xs tracking-widest mt-1 uppercase">
+                      Celebrating the Soul of Marathi Culture
+                    </p>
+                  </div>
+                  <p className="font-inter text-[oklch(0.60_0_0)] text-sm leading-relaxed mb-5 max-w-2xl mx-auto">
+                    Purushottam Laxman Deshpande — lovingly called &apos;Pu
+                    La&apos; — was more than a writer. He was Maharashtra's
+                    laughter, its tears, its heartbeat. Through his stories,
+                    characters like Antoo Barua, Namya, and Sakharam Gatne come
+                    alive, teaching children the richness of Marathi culture,
+                    the joy of simple life, and the art of storytelling with a
+                    smile.
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-3 mb-6">
+                    {[
+                      "Antoo Barua — The Lovable Misfit",
+                      "Batatyachi Chaal — Life in the Chawl",
+                      "Vyakti Ani Valli — Portraits of Maharashtra",
+                    ].map((story) => (
+                      <span
+                        key={story}
+                        className="font-cinzel text-[10px] uppercase tracking-[0.1em] px-3 py-1.5 border border-[oklch(0.38_0.06_60)] text-[var(--gold-light)] rounded-full"
+                        style={{ background: "oklch(0.08 0.01 60 / 0.6)" }}
+                      >
+                        {story}
+                      </span>
+                    ))}
+                  </div>
+                  <blockquote
+                    className="border-l-2 pl-5 py-2 mx-auto max-w-xl text-left"
+                    style={{ borderColor: "var(--gold)" }}
+                  >
+                    <p
+                      className="font-inter italic text-base leading-relaxed mb-2"
+                      style={{ color: "var(--gold)" }}
+                    >
+                      "आयुष्यात दोन गोष्टी सोडू नका — हसणं आणि शिकणं."
+                    </p>
+                    <footer className="font-cinzel text-[9px] uppercase tracking-[0.18em] text-[oklch(0.52_0_0)]">
+                      — Pu La Deshpande &nbsp;·&nbsp;{" "}
+                      <span className="not-italic normal-case tracking-normal text-[oklch(0.48_0_0)]">
+                        "Never give up two things in life — laughter and
+                        learning."
+                      </span>
+                    </footer>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -587,14 +1122,12 @@ const transformSteps = [
 function Transformation() {
   const { ref, inView } = useInView();
   return (
-    /* FIX 3: large section padding — the most important section deserves the most drama */
     <section
       id="transformation"
       className="py-44 relative overflow-hidden"
       style={{ background: "oklch(0.06 0 0)" }}
       ref={ref}
     >
-      {/* Gold radial glow — larger and brighter */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -602,7 +1135,6 @@ function Transformation() {
             "radial-gradient(ellipse 80% 60% at 50% 50%, oklch(0.75 0.12 85 / 0.07) 0%, transparent 65%)",
         }}
       />
-      {/* FIX 3: subtle top/bottom horizontal gold rules for section framing */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
@@ -626,13 +1158,12 @@ function Transformation() {
           className="text-center mb-24"
         >
           <p className="section-label mb-6">The Journey</p>
-          {/* FIX 1: cinematic H2 size + tracking */}
           <h2
             className="font-cinzel font-black uppercase mx-auto max-w-4xl"
             style={{
               fontSize: "clamp(1.8rem, 4vw, 3.6rem)",
               color: "var(--gold)",
-              letterSpacing: "0.06em",
+              letterSpacing: "0.28em",
               lineHeight: 1.2,
             }}
           >
@@ -645,9 +1176,7 @@ function Transformation() {
           <div className="section-divider mt-8" />
         </motion.div>
 
-        {/* Steps */}
         <div className="relative">
-          {/* FIX 2: gradient connector line using gold-grad */}
           <div
             className="hidden md:block absolute top-10 left-[8%] right-[8%] h-px"
             style={{
@@ -670,7 +1199,6 @@ function Transformation() {
                 className="flex flex-col items-center text-center"
                 data-ocid={`transformation.card.${i + 1}`}
               >
-                {/* FIX 2: gradient border on circles */}
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center mb-5 relative"
                   style={{
@@ -686,7 +1214,6 @@ function Transformation() {
                     </div>
                   )}
                 </div>
-                {/* FIX 1: wider tracking on step labels */}
                 <h3
                   className="font-cinzel font-bold uppercase text-[10px] tracking-[0.2em] mb-1.5"
                   style={{ color: "var(--gold)" }}
@@ -701,7 +1228,6 @@ function Transformation() {
           </div>
         </div>
 
-        {/* Emotional copy */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -793,7 +1319,6 @@ function WhyUs() {
               data-ocid={`why.card.${i + 1}`}
             >
               <div className="text-gold mb-4">{p.icon}</div>
-              {/* FIX 1: why card titles wider tracking */}
               <h3
                 className="font-cinzel font-bold uppercase text-sm mb-3"
                 style={{
@@ -862,7 +1387,7 @@ function StudentExperience() {
             style={{
               fontSize: "clamp(1.8rem, 4vw, 3.2rem)",
               color: "var(--gold)",
-              letterSpacing: "0.06em",
+              letterSpacing: "0.28em",
               lineHeight: 1.3,
             }}
           >
@@ -906,18 +1431,555 @@ function StudentExperience() {
 }
 
 /* ─────────────────────────────────────────────
+   AWARDS & RECOGNITION
+───────────────────────────────────────────── */
+function AwardsRecognition() {
+  const { ref, inView } = useInView(0.1);
+
+  return (
+    <section
+      id="awards"
+      className="py-36 relative overflow-hidden"
+      style={{ background: "oklch(0.06 0 0)" }}
+      ref={ref}
+    >
+      {/* Ambient gold glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 50%, oklch(0.75 0.12 85 / 0.06) 0%, transparent 70%)",
+        }}
+      />
+      <div
+        className="absolute top-0 left-0 right-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, oklch(0.75 0.12 85 / 0.5), transparent)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, oklch(0.75 0.12 85 / 0.5), transparent)",
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <p className="section-label mb-5 flex items-center justify-center gap-3">
+            <span className="h-px w-10" style={{ background: "var(--gold)" }} />
+            Excellence &amp; Recognition
+            <span className="h-px w-10" style={{ background: "var(--gold)" }} />
+          </p>
+          <h2
+            className="font-cinzel text-4xl md:text-5xl font-bold mb-5"
+            style={{ color: "oklch(0.92 0 0)" }}
+          >
+            Honoured on the{" "}
+            <span style={{ color: "var(--gold)" }}>International Stage</span>
+          </h2>
+          <p
+            className="text-lg md:text-xl max-w-2xl mx-auto italic"
+            style={{ color: "oklch(0.70 0.08 85)" }}
+          >
+            A testament to artistic brilliance and pedagogical distinction
+          </p>
+        </motion.div>
+
+        {/* Award card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="relative rounded-2xl overflow-hidden"
+          style={{
+            background: "oklch(0.09 0 0)",
+            border: "1px solid oklch(0.75 0.12 85 / 0.35)",
+            boxShadow:
+              "0 0 60px oklch(0.75 0.12 85 / 0.1), 0 20px 60px oklch(0 0 0 / 0.5)",
+          }}
+        >
+          <div className="flex flex-col lg:flex-row gap-0">
+            {/* Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.9, delay: 0.3 }}
+              className="lg:w-5/12 flex-shrink-0"
+            >
+              <div
+                className="relative h-72 lg:h-full min-h-[340px]"
+                style={{
+                  borderRight: "1px solid oklch(0.75 0.12 85 / 0.25)",
+                }}
+              >
+                <img
+                  src="/assets/uploads/WhatsApp-Image-2026-02-15-at-6.14.01-PM-1--1.jpeg"
+                  alt="Appreciation Award — South Asian Category — 10th International Colombo Theatre Festival"
+                  className="w-full h-full object-cover"
+                />
+                {/* Gold frame overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    boxShadow: "inset 0 0 0 3px oklch(0.75 0.12 85 / 0.45)",
+                  }}
+                />
+                {/* Gradient overlay for blending */}
+                <div
+                  className="absolute inset-0 pointer-events-none hidden lg:block"
+                  style={{
+                    background:
+                      "linear-gradient(to right, transparent 80%, oklch(0.09 0 0) 100%)",
+                  }}
+                />
+              </div>
+            </motion.div>
+
+            {/* Content */}
+            <div className="lg:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+              {/* Trophy icon + award title */}
+              <div className="flex items-start gap-4 mb-6">
+                <div
+                  className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center text-2xl"
+                  style={{
+                    background: "oklch(0.75 0.12 85 / 0.12)",
+                    border: "1px solid oklch(0.75 0.12 85 / 0.4)",
+                  }}
+                >
+                  🏆
+                </div>
+                <div>
+                  <h3
+                    className="font-cinzel text-xl md:text-2xl font-bold leading-tight"
+                    style={{ color: "var(--gold)" }}
+                  >
+                    Appreciation Award
+                  </h3>
+                  <p
+                    className="font-cinzel text-base md:text-lg mt-1"
+                    style={{ color: "oklch(0.75 0.12 85 / 0.85)" }}
+                  >
+                    South Asian Category
+                  </p>
+                </div>
+              </div>
+
+              {/* Event name */}
+              <div
+                className="inline-flex items-center gap-3 mb-6 px-4 py-2 rounded-full w-fit"
+                style={{
+                  background: "oklch(0.75 0.12 85 / 0.08)",
+                  border: "1px solid oklch(0.75 0.12 85 / 0.3)",
+                }}
+              >
+                <span
+                  className="w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ background: "var(--gold)" }}
+                />
+                <span
+                  className="font-cinzel text-sm md:text-base font-semibold tracking-wide"
+                  style={{ color: "oklch(0.88 0.06 85)" }}
+                >
+                  10th International Colombo Theatre Festival
+                </span>
+              </div>
+
+              {/* Description */}
+              <p
+                className="text-base md:text-lg leading-relaxed mb-8"
+                style={{ color: "oklch(0.72 0 0)" }}
+              >
+                Udaan Theater and Films proudly celebrates this distinguished
+                honour, conferred upon our faculty at the 10th International
+                Colombo Theatre Festival — one of South Asia&apos;s most
+                prestigious platforms for theatrical excellence. Recognised in
+                the South Asian Category, this accolade affirms our unwavering
+                commitment to nurturing transformative artistry and advancing
+                the cultural legacy of Indian theatre on the global stage.
+              </p>
+
+              {/* Gold divider */}
+              <div
+                className="h-px w-24"
+                style={{ background: "var(--gold)" }}
+              />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   PERFORMANCE GALLERY
+───────────────────────────────────────────── */
+function PerformanceGallery() {
+  const { ref, inView } = useInView(0.08);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState<{
+    src: string;
+    caption: string;
+  } | null>(null);
+
+  const photos = [
+    {
+      src: "/assets/uploads/STP02052-2-1.JPG",
+      alt: "Live Stage Performance — Udaan Theater and Films",
+      caption: "Live Stage Performance",
+    },
+    {
+      src: "/assets/uploads/IMG_4732-2-1.jpg",
+      alt: "Ensemble Cast On Stage — Udaan Theater and Films",
+      caption: "Ensemble Cast — On Stage",
+    },
+    {
+      src: "/assets/uploads/PHOTO-3-1.jpeg",
+      alt: "Workshop In Action — Udaan Theater and Films",
+      caption: "Workshop In Action",
+    },
+    {
+      src: "/assets/uploads/WhatsApp-Image-2026-02-15-at-6.14.01-PM-1--1.jpeg",
+      alt: "Appreciation Award — South Asian Category — 10th International Colombo Theatre Festival",
+      caption: "Appreciation Award — Colombo Theatre Festival 2026",
+    },
+    {
+      src: "/assets/uploads/WhatsApp-Image-2026-02-15-at-6.14.01-PM-2--1.jpeg",
+      alt: "Theatre Workshop with School Students — Udaan Theater and Films",
+      caption: "Theatre Workshop with School Students",
+    },
+    {
+      src: "/assets/uploads/WhatsApp-Image-2026-02-15-at-6.14.01-PM-1.jpeg",
+      alt: "Powerful Stage Performance — Udaan Theater and Films",
+      caption: "Live Stage Performance",
+    },
+    {
+      src: "/assets/uploads/WhatsApp-Image-2026-02-15-at-6.14.01-PM-4--1.jpeg",
+      alt: "Deccan Literature Festival 2024 — Udaan Theater and Films",
+      caption: "Deccan Literature Festival 2024",
+    },
+    {
+      src: "/assets/uploads/WhatsApp-Image-2026-02-15-at-6.14.02-PM-1.jpeg",
+      alt: "Vizag Junior Festival 2024 — Udaan Theater and Films",
+      caption: "Vizag Junior Festival 2024",
+    },
+    {
+      src: "/assets/uploads/WhatsApp-Image-2026-02-15-at-6.14.01-PM-1-1.jpeg",
+      alt: "Students Training in Gohpur, Assam with Jungle Theater — Udaan Theater and Films",
+      caption: "Students Training — Gohpur, Assam with Jungle Theater",
+    },
+  ];
+
+  const openLightbox = (photo: { src: string; caption: string }) => {
+    setSelectedPhoto(photo);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setSelectedPhoto(null);
+  };
+
+  return (
+    <section
+      id="gallery"
+      className="py-36 relative overflow-hidden"
+      style={{ background: "oklch(0.05 0 0)" }}
+      ref={ref}
+    >
+      {/* Ambient gold glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 50% at 50% 50%, oklch(0.75 0.12 85 / 0.05) 0%, transparent 70%)",
+        }}
+      />
+      <div
+        className="absolute top-0 left-0 right-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, oklch(0.75 0.12 85 / 0.4), transparent)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, oklch(0.75 0.12 85 / 0.4), transparent)",
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-18"
+        >
+          <p className="section-label mb-5 flex items-center justify-center gap-3">
+            <Camera size={14} className="text-gold" />
+            Stage Moments
+          </p>
+          <h2
+            className="font-cinzel font-black uppercase"
+            style={{
+              fontSize: "clamp(2rem, 4.5vw, 3.6rem)",
+              color: "var(--gold)",
+              letterSpacing: "0.07em",
+            }}
+          >
+            Real Performances.
+            <span className="text-[oklch(0.92_0_0)]">
+              {" "}
+              Real Transformation.
+            </span>
+          </h2>
+          <div className="section-divider mt-6 mb-6" />
+          <p className="font-inter text-[oklch(0.55_0_0)] text-base max-w-xl mx-auto leading-relaxed">
+            Every photograph captures a moment when our students stepped beyond
+            fear and into their power. This is what transformation looks like.
+          </p>
+        </motion.div>
+
+        {/* 2-photo grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto">
+          {photos.map((photo, idx) => (
+            <motion.div
+              key={photo.src}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{
+                duration: 1,
+                delay: 0.2 + idx * 0.18,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
+              data-ocid={`gallery.card.${idx + 1}`}
+            >
+              {/* Outer gold-frame wrapper */}
+              <button
+                type="button"
+                className="relative group cursor-pointer w-full text-left"
+                style={{
+                  padding: "3px",
+                  background:
+                    "linear-gradient(135deg, oklch(0.75 0.12 85 / 0.8) 0%, oklch(0.60 0.10 80 / 0.4) 40%, oklch(0.90 0.14 90 / 0.9) 60%, oklch(0.65 0.11 80 / 0.5) 100%)",
+                  borderRadius: "2px",
+                  boxShadow:
+                    "0 0 60px oklch(0.75 0.12 85 / 0.15), 0 25px 50px oklch(0 0 0 / 0.6)",
+                  border: "none",
+                }}
+                onClick={() =>
+                  openLightbox({ src: photo.src, caption: photo.caption })
+                }
+                aria-label={`View ${photo.caption} full screen`}
+              >
+                {/* Inner dark frame */}
+                <div
+                  className="relative overflow-hidden"
+                  style={{
+                    background: "oklch(0.04 0 0)",
+                    padding: "12px",
+                    borderRadius: "1px",
+                  }}
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full block object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{
+                      height: "340px",
+                      objectPosition: "center top",
+                    }}
+                  />
+
+                  {/* Subtle overlay on hover */}
+                  <div
+                    className="absolute inset-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none flex items-end"
+                    style={{
+                      background:
+                        "linear-gradient(to top, oklch(0.04 0 0 / 0.85) 0%, transparent 50%)",
+                    }}
+                  >
+                    <div className="p-6">
+                      <p className="font-cinzel text-[11px] tracking-[0.3em] uppercase text-gold">
+                        Click to view full screen
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Gold corner accents */}
+                {[
+                  "top-0 left-0",
+                  "top-0 right-0",
+                  "bottom-0 left-0",
+                  "bottom-0 right-0",
+                ].map((pos) => (
+                  <div
+                    key={pos}
+                    className={`absolute ${pos} w-6 h-6`}
+                    style={{
+                      borderColor: "oklch(0.90 0.14 90)",
+                      borderStyle: "solid",
+                      borderWidth:
+                        pos.includes("top") && pos.includes("left")
+                          ? "2px 0 0 2px"
+                          : pos.includes("top") && pos.includes("right")
+                            ? "2px 2px 0 0"
+                            : pos.includes("bottom") && pos.includes("left")
+                              ? "0 0 2px 2px"
+                              : "0 2px 2px 0",
+                    }}
+                  />
+                ))}
+              </button>
+
+              {/* Caption panel */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.55 + idx * 0.18 }}
+                className="mt-6 flex items-start justify-between gap-4"
+              >
+                <div>
+                  <h3
+                    className="font-cinzel font-bold uppercase tracking-[0.15em] mb-1"
+                    style={{ color: "var(--gold)", fontSize: "0.85rem" }}
+                  >
+                    {photo.caption}
+                  </h3>
+                  <p className="font-inter text-[oklch(0.52_0_0)] text-sm">
+                    Udaan Theater and Films · Navi Mumbai
+                  </p>
+                </div>
+                <div
+                  className="flex-shrink-0 px-3 py-1.5 rounded-sm text-[10px] font-cinzel tracking-[0.2em] uppercase"
+                  style={{
+                    border: "1px solid oklch(0.75 0.12 85 / 0.35)",
+                    color: "var(--gold-dim)",
+                  }}
+                >
+                  On Stage
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA below gallery */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="text-center mt-16"
+        >
+          <p className="font-inter text-[oklch(0.50_0_0)] text-sm mb-6">
+            Want to be in the next performance? Your story starts here.
+          </p>
+          <button
+            type="button"
+            onClick={() => scrollTo("contact")}
+            className="btn-gold px-10 py-3 rounded-sm text-xs gold-glow"
+            data-ocid="gallery.primary_button"
+          >
+            Join Udaan & Perform Live
+          </button>
+        </motion.div>
+      </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxOpen && selectedPhoto && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            style={{ background: "oklch(0.02 0 0 / 0.96)" }}
+            onClick={closeLightbox}
+            data-ocid="gallery.modal"
+          >
+            <motion.div
+              initial={{ scale: 0.92, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="relative max-w-5xl w-full"
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                padding: "3px",
+                background:
+                  "linear-gradient(135deg, oklch(0.75 0.12 85 / 0.8) 0%, oklch(0.60 0.10 80 / 0.4) 40%, oklch(0.90 0.14 90 / 0.9) 60%, oklch(0.65 0.11 80 / 0.5) 100%)",
+                borderRadius: "2px",
+                boxShadow: "0 0 120px oklch(0.75 0.12 85 / 0.2)",
+              }}
+            >
+              <div
+                style={{
+                  background: "oklch(0.04 0 0)",
+                  padding: "16px",
+                  borderRadius: "1px",
+                }}
+              >
+                <img
+                  src={selectedPhoto.src}
+                  alt={selectedPhoto.caption}
+                  className="w-full block object-contain"
+                  style={{ maxHeight: "80vh" }}
+                />
+                <div className="mt-4 pb-2 flex items-center justify-between">
+                  <p
+                    className="font-cinzel text-xs tracking-[0.25em] uppercase"
+                    style={{ color: "var(--gold)" }}
+                  >
+                    {selectedPhoto.caption} · Live Stage Performance · Udaan
+                    Theater and Films
+                  </p>
+                  <button
+                    type="button"
+                    onClick={closeLightbox}
+                    className="font-cinzel text-[10px] tracking-[0.2em] uppercase px-4 py-2 rounded-sm"
+                    style={{
+                      border: "1px solid oklch(0.75 0.12 85 / 0.4)",
+                      color: "var(--gold-dim)",
+                    }}
+                    data-ocid="gallery.close_button"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
+
+/* ─────────────────────────────────────────────
    CTA
 ───────────────────────────────────────────── */
 function CTA() {
   const { ref, inView } = useInView();
   return (
-    /* FIX 3: maximum dramatic vertical padding for the high-stakes CTA */
     <section
       className="py-52 relative overflow-hidden"
       style={{ background: "oklch(0.05 0 0)" }}
       ref={ref}
     >
-      {/* Gold radial glow — stronger for CTA impact */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -925,7 +1987,6 @@ function CTA() {
             "radial-gradient(ellipse 65% 65% at 50% 50%, oklch(0.75 0.12 85 / 0.10) 0%, transparent 65%)",
         }}
       />
-      {/* FIX 3: framing rules */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
@@ -947,12 +2008,11 @@ function CTA() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <p className="section-label mb-10">The Decision Moment</p>
-          {/* FIX 1: largest CTA heading with shimmer on the command line */}
           <h2
             className="font-cinzel font-black uppercase mb-10 mx-auto"
             style={{
               fontSize: "clamp(1.8rem, 4.5vw, 4rem)",
-              letterSpacing: "0.06em",
+              letterSpacing: "0.28em",
               lineHeight: 1.2,
             }}
           >
@@ -1011,7 +2071,6 @@ function Contact() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10">
-          {/* Left: Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -1098,7 +2157,6 @@ function Contact() {
             </div>
           </motion.div>
 
-          {/* Right: Map */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -1109,7 +2167,7 @@ function Contact() {
               style={{ border: "1px solid oklch(0.75 0.12 85 / 0.2)" }}
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120000!2d73.02!3d19.03!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce4f4a3b2e9b%3A0x7d5b0d3f5a8c3e1a!2sNavi%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://maps.google.com/maps?q=19.107056,73.000306&z=17&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: "350px" }}
@@ -1136,6 +2194,8 @@ function Footer() {
     { label: "Courses", id: "courses" },
     { label: "Transformation", id: "transformation" },
     { label: "Why Us", id: "why" },
+    { label: "Awards", id: "awards" },
+    { label: "Gallery", id: "gallery" },
     { label: "Contact", id: "contact" },
   ];
   return (
@@ -1148,7 +2208,6 @@ function Footer() {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
           <div>
             <div className="mb-4">
               <div className="font-cinzel text-3xl font-black tracking-[0.18em] text-gold-gradient">
@@ -1165,7 +2224,6 @@ function Footer() {
             </p>
           </div>
 
-          {/* Quick links */}
           <div>
             <h4 className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-gold mb-6">
               Quick Links
@@ -1186,7 +2244,6 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Social */}
           <div>
             <h4 className="font-cinzel text-[10px] tracking-[0.3em] uppercase text-gold mb-6">
               Follow Us
@@ -1236,7 +2293,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div
           className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
           style={{ borderTop: "1px solid oklch(0.75 0.12 85 / 0.15)" }}
@@ -1275,6 +2331,8 @@ export default function App() {
         <Transformation />
         <WhyUs />
         <StudentExperience />
+        <AwardsRecognition />
+        <PerformanceGallery />
         <CTA />
         <Contact />
       </main>
