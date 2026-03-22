@@ -1,0 +1,298 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* Dark theme as default — cinema black + gold */
+    --background: 0.08 0 0;
+    --foreground: 0.92 0 0;
+    --card: 0.12 0 0;
+    --card-foreground: 0.92 0 0;
+    --popover: 0.12 0 0;
+    --popover-foreground: 0.92 0 0;
+    --primary: 0.75 0.12 85;
+    --primary-foreground: 0.08 0 0;
+    --secondary: 0.15 0 0;
+    --secondary-foreground: 0.92 0 0;
+    --muted: 0.15 0 0;
+    --muted-foreground: 0.6 0 0;
+    --accent: 0.75 0.12 85;
+    --accent-foreground: 0.08 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.75 0.12 85 / 20%;
+    --input: 0.2 0 0;
+    --ring: 0.75 0.12 85;
+    --chart-1: 0.75 0.12 85;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.1 0 0;
+    --sidebar-foreground: 0.92 0 0;
+    --sidebar-primary: 0.75 0.12 85;
+    --sidebar-primary-foreground: 0.08 0 0;
+    --sidebar-accent: 0.15 0 0;
+    --sidebar-accent-foreground: 0.92 0 0;
+    --sidebar-border: 0.75 0.12 85 / 20%;
+    --sidebar-ring: 0.75 0.12 85;
+
+    /* Custom gold tokens */
+    --gold: oklch(0.75 0.12 85);
+    --gold-light: oklch(0.88 0.11 88);
+    --gold-bright: oklch(0.92 0.13 92);
+    --gold-dim: oklch(0.55 0.09 85);
+    --gold-glow: oklch(0.75 0.12 85 / 0.25);
+    --bg-deep: oklch(0.08 0 0);
+    --surface: oklch(0.12 0 0);
+    --surface-raised: oklch(0.15 0 0);
+    --text-primary: oklch(0.92 0 0);
+    --text-muted: oklch(0.6 0 0);
+
+    /* ── FIX 2: Rich multi-stop gold gradient ── */
+    --gold-grad: linear-gradient(
+      135deg,
+      oklch(0.56 0.15 68) 0%,
+      oklch(0.72 0.17 80) 30%,
+      oklch(0.92 0.15 92) 52%,
+      oklch(0.74 0.16 82) 72%,
+      oklch(0.58 0.14 70) 100%
+    );
+    --gold-grad-text: linear-gradient(
+      90deg,
+      oklch(0.72 0.14 80) 0%,
+      oklch(0.92 0.14 90) 40%,
+      oklch(0.78 0.13 84) 70%,
+      oklch(0.65 0.12 78) 100%
+    );
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+    background-color: oklch(0.08 0 0);
+    color: oklch(0.92 0 0);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Cinzel", serif;
+  }
+}
+
+@layer utilities {
+  .font-cinzel {
+    font-family: "Cinzel", serif;
+  }
+  .font-inter {
+    font-family: "Inter", sans-serif;
+  }
+  .text-gold {
+    color: var(--gold);
+  }
+  .text-gold-light {
+    color: var(--gold-light);
+  }
+  .text-gold-dim {
+    color: var(--gold-dim);
+  }
+  .bg-deep {
+    background-color: var(--bg-deep);
+  }
+  .bg-surface {
+    background-color: var(--surface);
+  }
+  .bg-surface-raised {
+    background-color: var(--surface-raised);
+  }
+  .border-gold {
+    border-color: var(--gold);
+  }
+  .border-gold-dim {
+    border-color: oklch(0.75 0.12 85 / 0.3);
+  }
+  .gold-glow {
+    box-shadow: 0 0 20px oklch(0.75 0.12 85 / 0.35), 0 0 50px
+      oklch(0.75 0.12 85 / 0.15), 0 4px 24px oklch(0 0 0 / 0.4);
+  }
+  .gold-glow-sm {
+    box-shadow: 0 0 10px oklch(0.75 0.12 85 / 0.2);
+  }
+
+  /* ── FIX 2: Premium multi-stop gold gradient button ── */
+  .btn-gold {
+    background: var(--gold-grad);
+    color: oklch(0.06 0 0);
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    /* FIX 1: tighter cinzel tracking on buttons */
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: none;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-gold::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      oklch(1 0 0 / 0.12) 50%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .btn-gold:hover::after {
+    opacity: 1;
+  }
+  .btn-gold:hover {
+    box-shadow: 0 0 32px oklch(0.75 0.12 85 / 0.55), 0 6px 24px
+      oklch(0 0 0 / 0.45);
+    transform: translateY(-3px);
+  }
+
+  /* ── FIX 2: Gold outline with gradient border effect ── */
+  .btn-gold-outline {
+    background: transparent;
+    color: var(--gold-light);
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border: 1.5px solid oklch(0.75 0.12 85 / 0.7);
+    transition: all 0.35s ease;
+    position: relative;
+  }
+  .btn-gold-outline:hover {
+    background: oklch(0.75 0.12 85 / 0.08);
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+    box-shadow: 0 0 24px oklch(0.75 0.12 85 / 0.35), inset 0 0 12px
+      oklch(0.75 0.12 85 / 0.05);
+    transform: translateY(-3px);
+  }
+
+  /* ── FIX 1: Section kicker label — larger, more breathing ── */
+  .section-label {
+    font-family: "Cinzel", serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.85;
+  }
+
+  /* ── FIX 2: Card with gradient top accent border ── */
+  .card-gold {
+    background-color: var(--surface);
+    border: 1px solid oklch(0.75 0.12 85 / 0.2);
+    position: relative;
+    transition: all 0.35s ease;
+    /* gradient top border via pseudo-element */
+  }
+  .card-gold::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold-grad);
+    opacity: 0.9;
+  }
+  .card-gold:hover {
+    border-color: oklch(0.75 0.12 85 / 0.5);
+    box-shadow: 0 0 40px oklch(0.75 0.12 85 / 0.12), 0 8px 32px
+      oklch(0 0 0 / 0.3);
+    transform: translateY(-5px);
+  }
+  .card-gold:hover::before {
+    opacity: 1;
+  }
+
+  /* ── FIX 1: Gold gradient text — cinematic headline treatment ── */
+  .text-gold-gradient {
+    background: var(--gold-grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── FIX 3: Section divider for dramatic breathing ── */
+  .section-divider {
+    width: 80px;
+    height: 1.5px;
+    background: var(--gold-grad);
+    margin: 0 auto;
+    opacity: 0.7;
+  }
+}
+
+/* Scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* ── FIX 2: Shimmer with richer gold spectrum ── */
+@keyframes shimmer {
+  0% {
+    background-position: -300% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    oklch(0.58 0.14 70) 0%,
+    oklch(0.72 0.16 80) 20%,
+    oklch(0.92 0.14 90) 45%,
+    oklch(0.78 0.16 85) 65%,
+    oklch(0.62 0.14 74) 85%,
+    oklch(0.58 0.14 70) 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
