@@ -320,7 +320,7 @@ function About() {
     { value: "100%", label: "Practical Training" },
   ];
   return (
-    <section id="about" className="py-8 bg-deep" ref={ref}>
+    <section id="about" className="py-16 bg-deep" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -481,7 +481,7 @@ const courses = [
 function Courses() {
   const { ref, inView } = useInView();
   return (
-    <section id="courses" className="py-8 bg-surface" ref={ref}>
+    <section id="courses" className="py-16 bg-surface" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1125,7 +1125,7 @@ function Transformation() {
   return (
     <section
       id="transformation"
-      className="py-8 relative overflow-hidden"
+      className="pt-16 pb-4 relative overflow-hidden"
       style={{ background: "oklch(0.06 0 0)" }}
       ref={ref}
     >
@@ -1286,7 +1286,7 @@ const whyPoints = [
 function WhyUs() {
   const { ref, inView } = useInView();
   return (
-    <section id="why" className="py-8 bg-deep" ref={ref}>
+    <section id="why" className="pt-4 pb-16 bg-deep" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1374,7 +1374,7 @@ const pillars = [
 function StudentExperience() {
   const { ref, inView } = useInView();
   return (
-    <section className="py-8 bg-surface" ref={ref}>
+    <section className="py-16 bg-surface" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1455,7 +1455,7 @@ function FounderProfile() {
   ];
 
   return (
-    <section id="founder" className="py-8 bg-surface">
+    <section id="founder" className="py-16 bg-surface">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section heading */}
         <div
@@ -1565,7 +1565,7 @@ function AwardsRecognition() {
   return (
     <section
       id="awards"
-      className="py-8 relative overflow-hidden"
+      className="py-16 relative overflow-hidden"
       style={{ background: "oklch(0.06 0 0)" }}
       ref={ref}
     >
@@ -1818,7 +1818,7 @@ function PerformanceGallery() {
   return (
     <section
       id="gallery"
-      className="py-8 relative overflow-hidden"
+      className="py-16 relative overflow-hidden"
       style={{ background: "oklch(0.05 0 0)" }}
       ref={ref}
     >
@@ -2102,7 +2102,7 @@ function CTA() {
   const { ref, inView } = useInView();
   return (
     <section
-      className="py-8 relative overflow-hidden"
+      className="py-16 relative overflow-hidden"
       style={{ background: "oklch(0.05 0 0)" }}
       ref={ref}
     >
@@ -2173,7 +2173,7 @@ function CTA() {
 function Contact() {
   const { ref, inView } = useInView();
   return (
-    <section id="contact" className="py-8 bg-deep" ref={ref}>
+    <section id="contact" className="py-16 bg-deep" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
