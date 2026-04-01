@@ -37,7 +37,7 @@ function scrollTo(id: string) {
 /* ─────────────────────────────────────────────
    Intersection observer hook for reveal
 ───────────────────────────────────────────── */
-function useInView(threshold = 0.12) {
+function useInView(threshold = 0.04) {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
@@ -48,7 +48,7 @@ function useInView(threshold = 0.12) {
           obs.disconnect();
         }
       },
-      { threshold },
+      { threshold, rootMargin: "0px 0px -5% 0px" },
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
